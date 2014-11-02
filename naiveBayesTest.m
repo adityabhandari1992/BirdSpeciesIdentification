@@ -1,4 +1,4 @@
-function [test_image_labels, error] = naiveBayesTest(phi_attributeK_classI, phiY, image_class_labels, image_attribute_labels, numberAttributes, numberClasses)
+function [error] = naiveBayesTest(phi_attributeK_classI, phiY, image_class_labels, image_attribute_labels, numberAttributes, numberClasses)
 
 % Find the number of images
 numberImages = size(image_class_labels,1);
@@ -19,9 +19,17 @@ for j = 1:numberImages
         for k = 1:numberAttributes
             row = j.*k;
             if (image_attribute_labels(row,3) == 1)
-                probability_classI(i) = probability_classI(i) + log(phi_attributeK_classI(k,i));
+                % Without using the confidence metric
+                % probability_classI(i) = probability_classI(i) + log(phi_attributeK_classI(k,i));
+                
+                % Using the confidence metric
+                probability_classI(i) = probability_classI(i) + (image_attribute_labels(row,4).*log(phi_attributeK_classI(k,i)));
             else
-                probability_classI(i) = probability_classI(i) + log(1-phi_attributeK_classI(k,i));
+                % Without using the confidence metric
+                % probability_classI(i) = probability_classI(i) + log(1-phi_attributeK_classI(k,i));
+            
+                % Using the confidence metric
+                probability_classI(i) = probability_classI(i) + (image_attribute_labels(row,4).*log(1-phi_attributeK_classI(k,i)));
             end
         end
         

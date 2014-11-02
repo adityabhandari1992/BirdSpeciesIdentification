@@ -1,8 +1,5 @@
-% Image attribute labels without the confidence column
-image_attribute_labels_without_confidence = importdata('image_attribute_labels_col1to3.txt');
-
-% Image attribute labels including the confidence column
-image_attribute_labels_with_confidence = importdata('image_attribute_labels_col1to4.txt');
+% Image attribute labels
+image_attribute_labels = importdata('image_attribute_labels_col1to4.txt');
 
 % Image class labels
 image_class_labels = importdata('image_class_labels.txt');

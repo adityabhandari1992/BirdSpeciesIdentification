@@ -23,7 +23,13 @@ for k = 1:numberAttributes
         % Update phiY(i), numeratorPhiKI(i) and denominatorPhiKI(i)
         i = image_class_labels(j,2);
         phiY(i) = phiY(i) + 1;
-        numeratorPhiKI(i) = numeratorPhiKI(i) + image_attribute_labels(row,3);
+        
+        % Without using the confidence metric
+        % numeratorPhiKI(i) = numeratorPhiKI(i) + image_attribute_labels(row,3);
+        
+        % Using the confidence metric
+        numeratorPhiKI(i) = numeratorPhiKI(i) + (image_attribute_labels(row,3).*image_attribute_labels(row,4));
+        
         denominatorPhiKI(i) = denominatorPhiKI(i) + 1;
     end
     
