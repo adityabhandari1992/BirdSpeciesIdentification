@@ -1,22 +1,10 @@
-knn_mat=validation_matrix*training_matrix';
-score_size=size((training_matrix),1);
-t_residual=zeros([1 score_size]);
-score=zeros([score_size-1 1]);
-validation_matrix_size=size((validation_matrix),1);
-class_residual=zeros([312 1]);
-for k=1:15
+% Image attribute labels
+image_attribute_labels = importdata('image_attribute_labels_col1to4.txt');
 
-    for v=1:validation_matrix_size
-    [B, I]=sort(knn_mat(v,:));
-    class_residual=zeros([312 1]);
-              for rev_runner=score_size-k+1:score_size
-              class_residual(training_matrix_classes(I(1,rev_runner),1),1)=class_residual(training_matrix_classes(I(1,rev_runner),1),1)+1;
-              end
-              [B3, winner_class]=max(class_residual);
-              if(validation_matrix_labels(v,2)==winner_class)
-              score(k,1)=score(k,1)+1;
-              end
-    end
-    
-end
-[B optimum_K]=max(score(:,1));
+% Image class labels
+image_class_labels = importdata('image_class_labels.txt');
+
+[test_matrix_labels,validation_matrix_labels, training_matrix_labels] = class_label_splitter(image_class_labels);
+[test_matrix,test_matrix_classes,validation_matrix,validation_matrix_classes, training_matrix,training_matrix_classes] = matrix_generator(image_attribute_labels,test_matrix_labels,validation_matrix_labels,training_matrix_labels);
+K_training_range_row=[1:15];
+[B, optimum_K accuracy]=knn_cosine_distance(validation_matrix,validation_matrix_labels,training_matrix,training_matrix_classes,K_training_range_row);
