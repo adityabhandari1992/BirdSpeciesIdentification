@@ -7,9 +7,9 @@ Naive Bayes
 =====
 
 - Without confidence metric:  
-Error = 71.1741 %  
-Accuracy = 28.8259 %
+Error = 62.1310 %  
+Accuracy = 37.8690 %
 
 - With confidence metric:  
-Error = 66.2708 %  
-Accuracy = 33.7292 %
+Error = 62.2922 %  
+Accuracy = 37.7078 %

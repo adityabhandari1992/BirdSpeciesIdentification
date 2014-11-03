@@ -3,10 +3,10 @@ readData
 
 % Run Naive Bayes algorithm
 % Train
-[phiK, phiY] = naiveBayesTrain(image_class_labels, image_attribute_labels, numberAttributes, numberClasses);
+[phiK0, phiK1, phiY] = naiveBayesTrain(image_class_labels, image_attribute_labels, numberAttributes, numberClasses);
 
 % Test
-[error] = naiveBayesTest(phiK, phiY, image_class_labels, image_attribute_labels, numberAttributes, numberClasses);
+[error] = naiveBayesTest(phiK0, phiK1, phiY, image_class_labels, image_attribute_labels, numberAttributes, numberClasses);
 
 % Print the % error and accuracy
 percentageError = error.*100
