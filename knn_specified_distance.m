@@ -1,4 +1,13 @@
 function [B, optimum_K accuracy]=knn_specified_distance(validation_matrix,validation_matrix_labels,training_matrix,training_matrix_classes,K_training_range_row,distance)
+
+%Convert minus one to zeros first
+%test_matrix(test_matrix==-1) = 0;
+training_matrix(training_matrix==-1)=0;
+validation_matrix(validation_matrix==-1)=0;
+
+
+
+
 %knn_mat=validation_matrix*training_matrix';
 %distance='euclidean';
 % 'hamming' , 'chebychev' , 'minkowski', 'euclidean', 'seuclidean'
