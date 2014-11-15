@@ -35,6 +35,9 @@ Testing on the entire training data
 
 <b>LDA</b> - Error = 36.4353579912 %
 
+<b>Random Forests</b> - Error = 0.610790634544 %
+
+
 Testing on separate test data
 ===
 <b>Naive Bayes</b> - Error = 80.7806533729 %  
@@ -47,3 +50,5 @@ Testing on separate test data
       Distance - Error = 66.9495120916 %
 
 <b>LDA</b> - Error = 54.5608824777 %
+
+<b>Random Forests</b> - Error = 69.4102672889 %
