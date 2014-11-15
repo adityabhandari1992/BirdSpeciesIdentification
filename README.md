@@ -5,15 +5,20 @@ Bird Species Identification from an Image
 
 Naive Bayes
 =====
+(Tested on training data)  
 
 - Without confidence metric:  
 Error = 62.1310 %  
-Accuracy = 37.8690 %
 
 - With confidence metric:  
 Error = 62.2922 %  
-Accuracy = 37.7078 %
 
+KNN
+=====
+(Tested on separate test data)  
+
+Optimal k = 13  
+Error = 69.63 %
 
 Scikit library
 =====
