@@ -17,8 +17,18 @@ Accuracy = 37.7078 %
 
 Scikit library
 =====
+Testing on the entire training data
+===
 Naive Bayes - Error = 66.9324737021 %  
 
 SVM - Error = 49.3298269427 %  
 
 Decision Trees - Error = 0.169664065151 %  
+
+Testing on separate test data
+===
+Naive Bayes - Error = 80.7806533729 %  
+
+SVM - Error = 56.0882477726 %  
+
+Decision Trees - Error = 75.6470089096 %  
