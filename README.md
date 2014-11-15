@@ -30,7 +30,7 @@ SVM - Error = 49.3298269427 %
 
 Decision Trees - Error = 0.169664065151 %  
 
-KNN - Uniform - Error = 54.5724465558 %
+KNN - Uniform - Error = 54.5724465558 %  
       Distance - Error = 0.169664065151 %
 
 
@@ -42,5 +42,5 @@ SVM - Error = 56.0882477726 %
 
 Decision Trees - Error = 75.6470089096 %  
 
-KNN - Uniform - Error = 68.8162918965 %
+KNN - Uniform - Error = 68.8162918965 %  
       Distance - Error = 66.9495120916 %
