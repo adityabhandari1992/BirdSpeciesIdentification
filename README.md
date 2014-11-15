@@ -33,6 +33,7 @@ Testing on the entire training data
 <b>KNN</b> - Uniform - Error = 54.5724465558 %  
       Distance - Error = 0.169664065151 %
 
+<b>LDA</b> - Error = 36.4353579912 %
 
 Testing on separate test data
 ===
@@ -44,3 +45,5 @@ Testing on separate test data
 
 <b>KNN</b> - Uniform - Error = 68.8162918965 %  
       Distance - Error = 66.9495120916 %
+
+<b>LDA</b> - Error = 54.5608824777 %
