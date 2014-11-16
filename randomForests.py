@@ -2,7 +2,7 @@
 NUMBER_IMAGES = 11788
 
 from  numpy import *;
-from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import RandomForestClassifier
 import scipy.io
 
 # Import data
@@ -27,12 +27,12 @@ testLabels = testLabelsRecord['test_matrix_classes']
 trainingSize = size(trainingLabels)
 testSize = size(testLabels)
 
-# Train Naive Bayes on the training data 
-gnb = GaussianNB()
-gnb.fit(trainingData, trainingLabels)
+# Train LDA on the training data 
+clf = RandomForestClassifier(n_estimators=10)
+clf.fit(trainingData, trainingLabels)
 
 # Test the trained model in the test data
-predictedLabels = gnb.predict(testData)
+predictedLabels = clf.predict(testData)
 
 # Find the percentage error
 error = 0

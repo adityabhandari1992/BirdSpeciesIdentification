@@ -2,24 +2,45 @@
 NUMBER_IMAGES = 11788
 
 from  numpy import *;
-from sklearn import neighbors, datasets
+from sklearn import neighbors
+import scipy.io
 
-# Import the data
-featureData = loadtxt("Data/featureData.txt")
-labels = loadtxt("Data/labels.txt")
+# Import data
+# trainingData = loadtxt('Data/featureData.txt')
+# trainingLabels = loadtxt('Data/labels.txt')
+# testData = trainingData
+# testLabels = trainingLabels
 
-n_neighbors = 1
+# Import training data
+trainingDataRecord = scipy.io.loadmat('SampledData/training_matrix.mat')
+trainingData = trainingDataRecord['training_matrix']
+trainingLabelsRecord = scipy.io.loadmat('SampledData/training_matrix_classes.mat')
+trainingLabels = trainingLabelsRecord['training_matrix_classes']
 
-for n_neighbors in range(1,20):
-    clf = neighbors.KNeighborsClassifier(n_neighbors, 'uniform')
-    clf.fit(featureData, labels)
+# Import the test data
+testDataRecord = scipy.io.loadmat('SampledData/test_matrix.mat')
+testData = testDataRecord['test_matrix']
+testLabelsRecord = scipy.io.loadmat('SampledData/test_matrix_classes.mat')
+testLabels = testLabelsRecord['test_matrix_classes']
 
-    predictedValues = clf.predict(featureData)
+# Find the sizes of the data
+trainingSize = size(trainingLabels)
+testSize = size(testLabels)
+
+n_neighbors = 15
+
+for weights in ['uniform', 'distance']:
+    # Train KNN on the training data 
+    clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights)
+    clf.fit(trainingData, trainingLabels)
+
+    # Test the trained model in the test data
+    predictedLabels = clf.predict(testData)
 
     error = 0
-    for i in range(0,11788):
-        if predictedValues[i] != labels[i]:
+    for i in range(0,testSize):
+        if predictedLabels[i] != testLabels[i]:
             error = error+1
 
-    print n_neighbors
-    print float(error)/float(11788) * 100
+    print weights
+    print float(error)/float(testSize) * 100
